@@ -79,9 +79,6 @@ export function SidebarNavigation() {
             ))}
           </ul>
           <ul className={styles.list}>
-            <a href="mailto:support@prolog-app.com?subject=Support Request: ">
-              Support
-            </a>
             <MenuItemButton
               text="Support"
               iconSrc="/icons/support.svg"
