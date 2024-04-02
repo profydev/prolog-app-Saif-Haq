@@ -16,6 +16,12 @@ const menuItems = [
   { text: "Settings", iconSrc: "/icons/settings.svg", href: Routes.settings },
 ];
 
+const supportLink = {
+  text: "Support",
+  iconSrc: "/icons/support.svg",
+  href: "mailto:support@prolog-app.com?subject=Support Request:",
+};
+
 export function SidebarNavigation() {
   const router = useRouter();
   const { isSidebarCollapsed, toggleSidebar } = useContext(NavigationContext);
@@ -79,12 +85,12 @@ export function SidebarNavigation() {
             ))}
           </ul>
           <ul className={styles.list}>
-            <MenuItemButton
-              text="Support"
-              iconSrc="/icons/support.svg"
+            <MenuItemLink
+              {...supportLink}
               isCollapsed={isSidebarCollapsed}
-              onClick={() => alert("Support")}
+              isActive={router.pathname === supportLink.href}
             />
+
             <MenuItemButton
               text="Collapse"
               iconSrc={
