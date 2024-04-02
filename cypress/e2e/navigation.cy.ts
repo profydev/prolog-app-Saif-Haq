@@ -92,4 +92,15 @@ describe("Sidebar Navigation", () => {
       isNotInViewport("nav");
     });
   });
+
+  it("opens the user's mail app when clicking the 'Support' button", () => {
+    // Get the 'Support' button and invoke 'click'
+    cy.get("nav").contains("Support").click();
+
+    // Assert
+    cy.url().should(
+      "include",
+      "mailto:support@prolog-app.com?subject=Support%20Request:%20",
+    );
+  });
 });

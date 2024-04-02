@@ -79,15 +79,21 @@ export function SidebarNavigation() {
             ))}
           </ul>
           <ul className={styles.list}>
+            <a href="mailto:support@prolog-app.com?subject=Support Request: ">
+              Support
+            </a>
             <MenuItemButton
               text="Support"
               iconSrc="/icons/support.svg"
               isCollapsed={isSidebarCollapsed}
-              onClick={() =>
-                window.open(
-                  "mailto:support@prolog-app.com?subject=Support Request:",
-                )
-              }
+              onClick={() => {
+                const mailtoLink =
+                  "mailto:support@prolog-app.com?subject=Support Request:";
+                const newWindow = window.open(mailtoLink, "_blank");
+                if (!newWindow) {
+                  alert(`Please send us an email at support@prolog-app.com`);
+                }
+              }}
             />
             <MenuItemButton
               text="Collapse"
